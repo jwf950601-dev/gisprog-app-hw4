@@ -3,6 +3,8 @@
 執行方式：在終端機輸入 solara run app.py
 """
 
+# pyright: reportMissingImports=false
+# pyright: reportMissingModuleSource=false
 from pathlib import Path
 
 import pandas as pd
