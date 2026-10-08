@@ -11,12 +11,12 @@ import pandas as pd
 import plotly.express as px
 import solara
 
-DATA_PATH = Path(__file__).parent / "data" / "youbike_sample.csv"
+DATA_PATH = Path(__file__).parent / "data" / "my_youbike_w3.csv"
 
 # 讀檔放在元件外面：App 啟動時只讀一次，切換選項時不會重新讀檔。
 # sno、act 指定為字串，避免被自動轉成整數（W3 的 read_json 陷阱，read_csv 也一樣）。
 df = pd.read_csv(DATA_PATH, dtype={"sno": str, "act": str})
-df = df[df["act"] == "1"]  # 只看營運中的站
+df = df[df["act"] == "True"]  # 只看營運中的站（這份 CSV 的 act 存成 True/False）
 
 時段們 = sorted(df["時段"].unique())
 
